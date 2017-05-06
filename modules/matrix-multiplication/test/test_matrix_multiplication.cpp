@@ -143,14 +143,3 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum) {
     // Assert
     EXPECT_EQ("2", number3.getValue());
 }
-
-TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_long) {
-    // Arrange
-    ALNumber number1("11111111111111111111111111111111111");
-    ALNumber number2("11111111111111111111111111111111111");
-    ALNumber number3;
-    // Act
-    number3 = number1 + number2;
-    // Assert
-    EXPECT_EQ("22222222222222222222222222222222222", number3.getValue());
-}
