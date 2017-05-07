@@ -331,3 +331,39 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {
     // Assert
     EXPECT_EQ(1, flag);
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2(4, 3);
+    ALMatrix compos_matrixes;
+    ALMatrix result(3, 3);
+    bool flag(true);
+    // Act
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 4; ++j) {
+            matrix1[i][j] = "23";
+        }
+    }
+    for (unsigned int i = 0; i < 4; ++i) {
+        for (unsigned int j = 0; j < 3; ++j) {
+            matrix2[i][j] = "23";
+        }
+    }
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 3; ++j) {
+            result[i][j] = "2116";
+        }
+    }
+    compos_matrixes = matrix1 * matrix2;
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 3; ++j) {
+            if (compos_matrixes[i][j] != result[i][j]) {
+                flag = false;
+                break;
+            }
+        }
+    }
+    // Assert
+    EXPECT_EQ(1, flag);
+}

@@ -103,13 +103,12 @@ ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
 ALMatrix ALMatrix::operator*(const ALMatrix& _matrix) const {
     ALMatrix compos_res;
     if (this->rows == _matrix.columns && this->columns == _matrix.rows) {
-        ALMatrix composition(rows >= columns ? rows : columns,
-            rows >= columns ? rows : columns);
+        ALMatrix composition(rows, rows);
         for (unsigned int i = 0; i < composition.rows; ++i) {
             for (unsigned int j = 0; j < composition.columns; ++j) {
-                for (unsigned int k = 0; k < composition.columns; ++k) {
-                    composition.matrix[i][j] =
-                        this->matrix[i + k][j] *_matrix.matrix[i][j + k];
+                for (unsigned int k = 0; k < this->columns; ++k) {
+                    composition.matrix[i][j] = composition[i][j] +
+                        this->matrix[i][k] *_matrix.matrix[k][j];
                 }
             }
         }
