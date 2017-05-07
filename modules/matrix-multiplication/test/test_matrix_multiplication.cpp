@@ -269,5 +269,5 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_set_matrix) {
     // Act
     matrix[1][2] = "2";
     // Assert
-    EXPECT_EQ("2", matrix[1][2].getValue());
+    EXPECT_EQ("2", matrix[1][2]);
 }
