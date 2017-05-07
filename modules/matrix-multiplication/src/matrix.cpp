@@ -128,8 +128,11 @@ unsigned int ALMatrix::get_columns() const {
     return columns;
 }
 
-ALNumber* ALMatrix::operator[](unsigned int row) const {
-    return matrix[row];
+ALNumber* ALMatrix::operator[](unsigned int _row) const {
+    if (!(_row < rows)) {
+        throw "wrong row";
+    }
+    return matrix[_row];
 }
 
 std::ostream & operator << (std::ostream & os, const ALMatrix & _matrix) {
