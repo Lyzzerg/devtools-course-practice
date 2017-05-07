@@ -438,8 +438,8 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_sum_wrong_matrixes) {
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_use_wrong_indexation) {
     // Arrange
-    ALMatrix matrix1(3, 4);
+    ALMatrix matrix1(3);
     // Act
     // Assert
-    ASSERT_ANY_THROW(matrix1[4][1]);
+    ASSERT_ANY_THROW(matrix1[4]);
 }

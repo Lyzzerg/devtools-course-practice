@@ -128,7 +128,7 @@ unsigned int ALMatrix::get_columns() const {
 }
 
 ALNumber* ALMatrix::operator[](unsigned int _row) const {
-    if (!(_row < rows)) {
+    if (_row >= rows) {
         throw "wrong row";
     }
     return matrix[_row];
