@@ -170,6 +170,16 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_num) {
     EXPECT_EQ("1", number1.getValue());
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_assign_equal_nums) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("123");
+    // Act
+    number1 = number2;
+    // Assert
+    EXPECT_EQ("123", number1.getValue());
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_str) {
     // Arrange
     ALNumber number1;
