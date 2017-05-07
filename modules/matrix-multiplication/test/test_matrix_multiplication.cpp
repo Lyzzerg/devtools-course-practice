@@ -22,6 +22,16 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_num_as_str) {
     ASSERT_NO_THROW(ALNumber number(str));
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_value) {
+    // Arrange
+    ALNumber number1("12");
+    std::string num;
+    // Act
+    num = number1.getValue();
+    // Assert
+    EXPECT_EQ("12", num);
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, corr_create_num_as_str) {
     // Arrange
     std::string str = "123";
@@ -143,4 +153,25 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum) {
     number3 = number1 + number2;
     // Assert
     EXPECT_EQ("2", number3.getValue());
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_nums) {
+    // Arrange
+    ALNumber number1("12");
+    ALNumber number2("33");
+    ALNumber number3;
+    // Act
+    number3 = number1 * number2;
+    // Assert
+    EXPECT_EQ("396", number3.getValue());
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_str) {
+    // Arrange
+    ALNumber number1("12");
+    ALNumber number3;
+    // Act
+    number3 = number1 * "33";
+    // Assert
+    EXPECT_EQ("396", number3.getValue());
 }
