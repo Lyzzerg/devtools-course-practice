@@ -55,3 +55,12 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_copy_num) {
     // Assert
     ASSERT_NO_THROW(ALNumber number2(number1));
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, copy_eq_source_num) {
+    // Arrange
+    ALNumber number1("11124654846321654612");
+    // Act
+    ALNumber number2(number1);
+    // Assert
+    EXPECT_EQ("11124654846321654612", number2.getValue());
+}
