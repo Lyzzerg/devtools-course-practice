@@ -52,7 +52,6 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_copy_num) {
     // Arrange
     ALNumber number1("11124654846321654612");
     // Act
-    ALNumber number2(number1);
     // Assert
-    ASSERT_ANY_THROW(ALNumber number2(number1));
+    ASSERT_NO_THROW(ALNumber number2(number1));
 }
