@@ -89,7 +89,7 @@ ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
     if (this->rows == _matrix.rows && this->columns == _matrix.columns) {
         sum_res = *this;
         for (unsigned int i = 0; i < rows; ++i) {
-            for (unsigned int j = 0; j < rows; ++j) {
+            for (unsigned int j = 0; j < columns; ++j) {
                 sum_res.matrix[i][j] =
                     sum_res.matrix[i][j] + _matrix.matrix[i][j];
             }
