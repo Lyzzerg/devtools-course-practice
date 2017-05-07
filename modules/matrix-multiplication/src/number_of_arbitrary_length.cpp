@@ -141,13 +141,7 @@ ALNumber & ALNumber::operator=(const std::string & _str) {
 }
 
 ALNumber ALNumber::operator+(const ALNumber & _number) const {
-    ALNumber sum_res;
-    if (size != 0 && _number.size != 0) {
-        sum_res = sum(*this, _number);
-    } else {
-        throw "suming wrong numbers";
-    }
-    return sum_res;
+    return sum(*this, _number);
 }
 
 ALNumber ALNumber::operator+(const std::string & _number) const {
@@ -156,19 +150,12 @@ ALNumber ALNumber::operator+(const std::string & _number) const {
 }
 
 ALNumber ALNumber::operator*(const ALNumber & _number) const {
-    ALNumber compos_res;
-    if (size != 0 && _number.size != 0) {
-        compos_res = compos(*this, _number);
-    } else {
-        throw "suming wrong numbers";
-    }
-    return compos_res;
+    return compos(*this, _number);
 }
 
 ALNumber ALNumber::operator*(const std::string & _number) const {
-    ALNumber compos_res(_number);
-    compos_res = compos(*this, compos_res);
-    return compos_res;
+    ALNumber temp(_number);
+    return compos(*this, temp);
 }
 
 std::string ALNumber::getValue() const {

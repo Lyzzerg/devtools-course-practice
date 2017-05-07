@@ -189,6 +189,15 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_str) {
     EXPECT_EQ("465456456545645", number1.getValue());
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_equal_str) {
+    // Arrange
+    ALNumber number1("465456456545645");
+    // Act
+    number1 = "465456456545645";
+    // Assert
+    EXPECT_EQ("465456456545645", number1.getValue());
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_assign_corrupted_str) {
     // Arrange
     ALNumber number1;
