@@ -32,6 +32,8 @@ class ALMatrix {
 
      unsigned int get_columns() const;
 
+     ALNumber* operator [] (unsigned int row) const;
+
      friend std::ostream& operator << (std::ostream& os,
          const ALMatrix& _matrix);
 

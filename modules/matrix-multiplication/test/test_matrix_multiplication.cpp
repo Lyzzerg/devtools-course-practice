@@ -220,3 +220,16 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
     // Assert
     EXPECT_EQ(result, rows_columns);
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
+    // Arrange
+    ALMatrix matrix(3, 4);
+    // Act
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            matrix[i][j] = std::to_string(i + j);
+        }
+    }
+    // Assert
+    EXPECT_EQ("2", matrix[1][2]);
+}
