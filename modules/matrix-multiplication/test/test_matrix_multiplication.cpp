@@ -191,6 +191,22 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix2) {
     ASSERT_NO_THROW(ALMatrix matrix(3, 4));
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_row) {
+    // Arrange
+    ALMatrix matrix(3, 4);
+    // Act
+    // Assert
+    EXPECT_EQ(3, matrix.get_rows());
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_columns) {
+    // Arrange
+    ALMatrix matrix(3, 4);
+    // Act
+    // Assert
+    EXPECT_EQ(4, matrix.get_columns());
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
     // Arrange
     ALMatrix matrix(3, 4);
