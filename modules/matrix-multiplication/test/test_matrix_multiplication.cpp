@@ -347,24 +347,24 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_matrixes) {
     ALMatrix result(3, 3);
     bool flag(true);
     // Act
-    for (unsigned int i = 0; i < 3; ++i) {
-        for (unsigned int j = 0; j < 4; ++j) {
+    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
             matrix1[i][j] = "23";
         }
     }
-    for (unsigned int i = 0; i < 4; ++i) {
-        for (unsigned int j = 0; j < 3; ++j) {
+    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
             matrix2[i][j] = "23";
         }
     }
-    for (unsigned int i = 0; i < 3; ++i) {
-        for (unsigned int j = 0; j < 3; ++j) {
+    for (unsigned int i = 0; i < result.get_rows(); ++i) {
+        for (unsigned int j = 0; j < result.get_columns(); ++j) {
             result[i][j] = "2116";
         }
     }
     compos_matrixes = matrix1 * matrix2;
-    for (unsigned int i = 0; i < 3; ++i) {
-        for (unsigned int j = 0; j < 3; ++j) {
+    for (unsigned int i = 0; i < compos_matrixes.get_rows(); ++i) {
+        for (unsigned int j = 0; j < compos_matrixes.get_columns(); ++j) {
             if (compos_matrixes[i][j] != result[i][j]) {
                 flag = false;
                 break;
@@ -380,14 +380,14 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_copy_matrix) {
     ALMatrix matrix1(3, 4);
     bool flag(true);
     // Act
-    for (unsigned int i = 0; i < 3; ++i) {
-        for (unsigned int j = 0; j < 4; ++j) {
+    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
             matrix1[i][j] = "23";
         }
     }
     ALMatrix matrix2(matrix1);
-    for (unsigned int i = 0; i < 3; ++i) {
-        for (unsigned int j = 0; j < 3; ++j) {
+    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
             if (matrix2[i][j] != matrix1[i][j]) {
                 flag = false;
                 break;
@@ -396,4 +396,50 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_copy_matrix) {
     }
     // Assert
     EXPECT_EQ(1, flag);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_compos_wrong_matrixes) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2(3, 3);
+    // Act
+    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
+            matrix1[i][j] = "23";
+        }
+    }
+    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
+            matrix2[i][j] = "23";
+        }
+    }
+    // Assert
+    ASSERT_ANY_THROW(matrix1*matrix2);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_sum_wrong_matrixes) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2(3, 3);
+    // Act
+    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
+            matrix1[i][j] = "23";
+        }
+    }
+    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
+            matrix2[i][j] = "23";
+        }
+    }
+    // Assert
+    ASSERT_ANY_THROW(matrix1+matrix2);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_use_wrong_indexation) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(matrix1[4][1]);
 }
