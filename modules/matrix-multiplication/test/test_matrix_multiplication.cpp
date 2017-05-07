@@ -367,3 +367,26 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_matrixes) {
     // Assert
     EXPECT_EQ(1, flag);
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_copy_matrix) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    bool flag(true);
+    // Act
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 4; ++j) {
+            matrix1[i][j] = "23";
+        }
+    }
+    ALMatrix matrix2(matrix1);
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 3; ++j) {
+            if (matrix2[i][j] != matrix1[i][j]) {
+                flag = false;
+                break;
+            }
+        }
+    }
+    // Assert
+    EXPECT_EQ(1, flag);
+}
