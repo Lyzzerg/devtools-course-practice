@@ -79,8 +79,9 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison2) {
     // Arrange
     ALNumber number1("123");
     ALNumber number2("213");
+    bool flag;
     // Act
-    bool flag = number1 == number2;
+    flag = (number1 == number2);
     // Assert
     EXPECT_EQ(false, flag);
 }
@@ -89,8 +90,9 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison3) {
     // Arrange
     ALNumber number1("123");
     ALNumber number2("123");
+    bool flag;
     // Act
-    bool flag = number1 != number2;
+    flag = (number1 != number2);
     // Assert
     EXPECT_EQ(false, flag);
 }
