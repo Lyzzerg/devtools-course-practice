@@ -125,7 +125,7 @@ unsigned int ALMatrix::get_rows() const {
 }
 
 unsigned int ALMatrix::get_columns() const {
-	return columns;
+    return columns;
 }
 
 std::ostream & operator << (std::ostream & os, const ALMatrix & _matrix) {
