@@ -120,6 +120,14 @@ ALMatrix ALMatrix::operator*(const ALMatrix& _matrix) const {
     return compos_res;
 }
 
+unsigned int ALMatrix::get_rows() const {
+    return rows;
+}
+
+unsigned int ALMatrix::get_columns() const {
+	return columns;
+}
+
 std::ostream & operator << (std::ostream & os, const ALMatrix & _matrix) {
     for (unsigned int i = 0; i < _matrix.rows; ++i) {
         for (unsigned int j = 0; j < _matrix.columns; ++j) {

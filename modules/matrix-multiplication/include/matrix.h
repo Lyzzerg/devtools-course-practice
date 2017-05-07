@@ -28,6 +28,10 @@ class ALMatrix {
 
      ALMatrix operator * (const ALMatrix& _matrix) const;
 
+     unsigned int get_rows() const;
+     
+     unsigned int get_columns() const;
+
      friend std::ostream& operator << (std::ostream& os,
          const ALMatrix& _matrix);
 

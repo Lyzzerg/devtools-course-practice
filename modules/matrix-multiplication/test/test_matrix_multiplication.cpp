@@ -175,3 +175,31 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_str) {
     // Assert
     EXPECT_EQ("396", number3.getValue());
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix) {
+    // Arrange
+    // Act
+    // Assert
+    ASSERT_NO_THROW(ALMatrix matrix);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix2) {
+    // Arrange
+    // Act
+    // Assert
+    ASSERT_NO_THROW(ALMatrix matrix(3,4));
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
+    // Arrange
+    ALMatrix matrix(3, 4);
+    std::pair<int, int> rows_columns;
+    std::pair<int, int> result;
+    // Act
+    rows_columns.first = matrix.get_rows();
+    result.first = 3;
+    rows_columns.second = matrix.get_columns();
+    result.second = 4;
+    // Assert
+    EXPECT_EQ(result, rows_columns);
+}
