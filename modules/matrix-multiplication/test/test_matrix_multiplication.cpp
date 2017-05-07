@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <string>
+#include <utility>
 
 #include "include/number_of_arbitrary_length.h"
 #include "include/matrix.h"
@@ -187,7 +188,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix2) {
     // Arrange
     // Act
     // Assert
-    ASSERT_NO_THROW(ALMatrix matrix(3,4));
+    ASSERT_NO_THROW(ALMatrix matrix(3, 4));
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
