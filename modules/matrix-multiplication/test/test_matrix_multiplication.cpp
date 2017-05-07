@@ -332,7 +332,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {
     EXPECT_EQ(1, flag);
 }
 
-TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_matrixes) {
     // Arrange
     ALMatrix matrix1(3, 4);
     ALMatrix matrix2(4, 3);
