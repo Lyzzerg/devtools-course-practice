@@ -72,7 +72,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison1) {
     // Act
     bool flag = number1 == number2;
     // Assert
-    EXPECT_EQ(true, flag);
+    EXPECT_EQ(1, flag);
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison2) {
@@ -83,7 +83,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison2) {
     // Act
     flag = (number1 == number2);
     // Assert
-    EXPECT_EQ(false, flag);
+    EXPECT_EQ(0, flag);
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison3) {
@@ -94,7 +94,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison3) {
     // Act
     flag = (number1 != number2);
     // Assert
-    EXPECT_EQ(false, flag);
+    EXPECT_EQ(0, flag);
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison4) {
@@ -104,7 +104,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison4) {
     // Act
     bool flag = number1 != number2;
     // Assert
-    EXPECT_EQ(true, flag);
+    EXPECT_EQ(1, flag);
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_num) {
