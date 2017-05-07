@@ -224,10 +224,8 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_set_matrix) {
     // Arrange
     ALMatrix matrix(3, 4);
-    ALNumber result;
     // Act
     matrix[1][2] = "2";
-    result = matrix[1][2];
     // Assert
-    EXPECT_EQ("2", result);
+    EXPECT_EQ("2", matrix[1][2].getValue());
 }
