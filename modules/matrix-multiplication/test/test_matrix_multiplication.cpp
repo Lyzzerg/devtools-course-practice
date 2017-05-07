@@ -266,10 +266,11 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_set_matrix) {
     // Arrange
     ALMatrix matrix(3, 4);
+    ALNumber expected("11");
     // Act
-    matrix[1][2] = "2";
+    matrix[1][2] = "11";
     // Assert
-    EXPECT_EQ("2", matrix[1][2]);
+    EXPECT_EQ(expected, matrix[1][2]);
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_matrixes) {
