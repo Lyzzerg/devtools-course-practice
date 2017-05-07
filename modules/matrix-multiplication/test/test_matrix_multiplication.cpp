@@ -221,7 +221,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
     EXPECT_EQ(result, rows_columns);
 }
 
-TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_set_matrix) {
     // Arrange
     ALMatrix matrix(3, 4);
     ALNumber result;
