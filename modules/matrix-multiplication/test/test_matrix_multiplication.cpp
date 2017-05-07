@@ -64,3 +64,81 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, copy_eq_source_num) {
     // Assert
     EXPECT_EQ("11124654846321654612", number2.getValue());
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison1) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("123");
+    // Act
+    bool flag = number1 == number2;
+    // Assert
+    EXPECT_EQ(true, flag);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison2) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("213");
+    // Act
+    bool flag = number1 == number2;
+    // Assert
+    EXPECT_EQ(false, flag);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison3) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("123");
+    // Act
+    bool flag = number1 != number2;
+    // Assert
+    EXPECT_EQ(false, flag);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison4) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("213");
+    // Act
+    bool flag = number1 != number2;
+    // Assert
+    EXPECT_EQ(true, flag);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_num) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("1");
+    // Act
+    number1 = number2;
+    // Assert
+    EXPECT_EQ("1", number1.getValue());
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_str) {
+    // Arrange
+    ALNumber number1;
+    // Act
+    number1 = "465456456545645";
+    // Assert
+    EXPECT_EQ("465456456545645", number1.getValue());
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_assign_corrupted_str) {
+    // Arrange
+    ALNumber number1;
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(number1 = "4654s56456as54564s5");
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum) {
+    // Arrange
+    ALNumber number1("1");
+    ALNumber number2("1");
+    ALNumber number3;
+    // Act
+    number3 = number1 + number2;
+    // Assert
+    EXPECT_EQ("2", number3.getValue());
+}
