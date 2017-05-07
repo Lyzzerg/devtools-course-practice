@@ -30,3 +30,12 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, corr_create_num_as_str) {
     // Assert
     EXPECT_EQ("123", number.getValue());
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, corr_create_big_num_as_str) {
+    // Arrange
+    std::string str = "1234567891011121314151617181920212223242526";
+    // Act
+    ALNumber number(str);
+    // Assert
+    EXPECT_EQ("1234567891011121314151617181920212223242526", number.getValue());
+}
