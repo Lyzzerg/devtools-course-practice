@@ -107,8 +107,20 @@ bool ALNumber::operator==(const ALNumber & _number) const {
     return res;
 }
 
+bool ALNumber::operator==(const std::string & _str) const {
+    bool result(true);
+    if (this->number_representation != _str) {
+        result = false;
+    }
+    return result;
+}
+
 bool ALNumber::operator!=(const ALNumber & _number) const {
     return !(*this == _number);
+}
+
+bool ALNumber::operator!=(const std::string & _str) const {
+    return !(*this == _str);
 }
 
 ALNumber & ALNumber::operator=(const ALNumber & _number) {

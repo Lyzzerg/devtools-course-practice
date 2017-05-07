@@ -29,7 +29,11 @@ class ALNumber {
 
     bool operator == (const ALNumber& _number) const;
 
+	bool operator == (const std::string& _str) const;
+
     bool operator != (const ALNumber& _number) const;
+
+	bool operator != (const std::string& _str) const;
 
     ALNumber& operator = (const ALNumber& _number);
 
