@@ -33,11 +33,5 @@ class ALMatrix {
      unsigned int get_columns() const;
 
      ALNumber* operator[] (unsigned int _row) const;
-
-     friend std::ostream& operator << (std::ostream& os,
-         const ALMatrix& _matrix);
-
-     friend std::istream& operator >> (std::istream& is,
-         ALMatrix& _matrix);
 };
 #endif  // MODULES_MATRIX_MULTIPLICATION_INCLUDE_MATRIX_H_

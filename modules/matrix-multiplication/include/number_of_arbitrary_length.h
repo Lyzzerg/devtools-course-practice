@@ -48,11 +48,5 @@ class ALNumber {
     ALNumber operator * (const std::string& _number) const;
 
     std::string getValue() const;
-
-    friend std::ostream& operator << (std::ostream& os,
-        const ALNumber& _number);
-
-    friend std::istream& operator >> (std::istream& is,
-        ALNumber& _number);
 };
 #endif  // MODULES_MATRIX_MULTIPLICATION_INCLUDE_NUMBER_OF_ARBITRARY_LENGTH_H_

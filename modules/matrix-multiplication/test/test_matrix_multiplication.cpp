@@ -259,6 +259,28 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix2) {
     ASSERT_NO_THROW(ALMatrix matrix(3, 4));
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix3) {
+    // Arrange
+    // Act
+    // Assert
+    ASSERT_NO_THROW(ALMatrix matrix(0));
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix4) {
+    // Arrange
+    // Act
+    // Assert
+    ASSERT_NO_THROW(ALMatrix matrix(0,0));
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_copy_null) {
+    // Arrange
+    ALMatrix matrix1(0);
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(ALMatrix matrix2(matrix1));
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_row) {
     // Arrange
     ALMatrix matrix(3, 4);
@@ -309,6 +331,27 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_matrixes) {
     matrix2 = matrix1;
     // Assert
     EXPECT_EQ(expected, matrix2[1][2]);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_to_not_null_matrix) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2(1);
+    ALNumber expected("2");
+    // Act
+    matrix1[1][2] = "2";
+    matrix2 = matrix1;
+    // Assert
+    EXPECT_EQ(expected, matrix2[1][2]);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_assign_null_matrix) {
+    // Arrange
+    ALMatrix matrix1(1);
+    ALMatrix matrix2(0);
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(matrix1 = matrix2);
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {

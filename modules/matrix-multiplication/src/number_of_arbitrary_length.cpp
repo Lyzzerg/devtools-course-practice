@@ -161,15 +161,3 @@ ALNumber ALNumber::operator*(const std::string & _number) const {
 std::string ALNumber::getValue() const {
     return number_representation;
 }
-
-std::ostream & operator<<(std::ostream & os, const ALNumber & _number) {
-    os << _number.getValue();
-    return os;
-}
-
-std::istream & operator>>(std::istream & is, ALNumber & _number) {
-    std::string str;
-    is >> str;
-    _number = str;
-    return is;
-}
