@@ -271,3 +271,43 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_set_matrix) {
     // Assert
     EXPECT_EQ("2", matrix[1][2]);
 }
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_matrixes) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2;
+    std::string expected("2");
+    // Act
+    matrix1[1][2] = "2";
+    matrix2 = matrix1;
+    // Assert
+    EXPECT_EQ(expected, matrix2[1][2]);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2(3, 4);
+    ALMatrix sum_matrixes;
+    ALMatrix result(3, 4);
+    bool flag(true);
+    // Act
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 4; ++j) {
+            matrix1[i][j] = "990";
+            matrix2[i][j] = "120";
+            result[i][j] = "1110";
+        }
+    }
+    sum_matrixes = matrix1 + matrix2;
+    for (unsigned int i = 0; i < 3; ++i) {
+        for (unsigned int j = 0; j < 4; ++j) {
+            if (sum_matrixes[i][j] != result[i][j]) {
+                flag = false;
+                break;
+            }
+        }
+    }
+    // Assert
+    EXPECT_EQ(1, flag);
+}
