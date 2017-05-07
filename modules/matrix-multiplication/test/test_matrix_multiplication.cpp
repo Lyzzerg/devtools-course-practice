@@ -245,6 +245,13 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix) {
     ASSERT_NO_THROW(ALMatrix matrix);
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix1) {
+    // Arrange
+    // Act
+    // Assert
+    ASSERT_NO_THROW(ALMatrix matrix(4));
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix2) {
     // Arrange
     // Act
