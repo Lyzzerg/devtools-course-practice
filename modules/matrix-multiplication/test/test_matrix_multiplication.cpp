@@ -276,7 +276,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_matrixes) {
     // Arrange
     ALMatrix matrix1(3, 4);
     ALMatrix matrix2;
-    std::string expected("2");
+    ALNumber expected("2");
     // Act
     matrix1[1][2] = "2";
     matrix2 = matrix1;
