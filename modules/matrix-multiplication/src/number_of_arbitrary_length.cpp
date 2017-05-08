@@ -97,11 +97,11 @@ ALNumber::~ALNumber() {}
 
 bool ALNumber::operator==(const ALNumber & _number) const {
     bool res(true);
-    if ((this->size == _number.size) && (this->size != 0)) {
+    if (this->size == _number.size) {
         if (this->number_representation != _number.number_representation) {
             res = false;
         }
-    } else if (this->size != 0) {
+    } else {
         res = false;
     }
     return res;

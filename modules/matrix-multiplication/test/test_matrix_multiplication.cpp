@@ -118,6 +118,26 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison4) {
     EXPECT_EQ(1, flag);
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison5) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("1");
+    // Act
+    bool flag = number1 == number2;
+    // Assert
+    EXPECT_EQ(0, flag);
+}
+
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison6) {
+    // Arrange
+    ALNumber number1("123");
+    ALNumber number2("1");
+    // Act
+    bool flag = number1 != number2;
+    // Assert
+    EXPECT_EQ(1, flag);
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_str_comparison1) {
     // Arrange
     ALNumber number1("123");
