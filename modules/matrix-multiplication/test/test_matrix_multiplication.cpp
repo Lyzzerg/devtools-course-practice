@@ -270,7 +270,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix4) {
     // Arrange
     // Act
     // Assert
-    ASSERT_NO_THROW(ALMatrix matrix(0,0));
+    ASSERT_NO_THROW(ALMatrix matrix(0, 0));
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_copy_null) {
@@ -333,7 +333,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_matrixes) {
     EXPECT_EQ(expected, matrix2[1][2]);
 }
 
-TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_to_not_null_matrix) {
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_assign_not_0_matrix) {
     // Arrange
     ALMatrix matrix1(3, 4);
     ALMatrix matrix2(1);
