@@ -37,6 +37,7 @@ class ALNumber {
     ALNumber operator * (const std::string& _number) const;
 
     std::string GetValue() const;
+ 
  private:
     std::string number_representation_;
     unsigned int size_;

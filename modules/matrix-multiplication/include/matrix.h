@@ -28,6 +28,7 @@ class ALMatrix {
      unsigned int GetColumns() const;
 
      ALNumber* operator[] (unsigned int _row) const;
+
  private:
     ALNumber ** matrix_;
     unsigned int rows;
