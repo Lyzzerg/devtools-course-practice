@@ -198,15 +198,6 @@ TEST(Baranov_Evgeny_ALNumberTest, can_assign_equal_nums) {
     EXPECT_EQ("123", number1.GetValue());
 }
 
-TEST(Baranov_Evgeny_ALNumberTest, can_correct_assign_str) {
-    // Arrange
-    ALNumber number1;
-    // Act
-    number1 = "465456456545645";
-    // Assert
-    EXPECT_EQ("465456456545645", number1.GetValue());
-}
-
 TEST(Baranov_Evgeny_ALNumberTest, can_correct_assign_equal_str) {
     // Arrange
     ALNumber number1("465456456545645");
