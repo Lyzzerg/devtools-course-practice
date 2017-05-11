@@ -4,7 +4,7 @@
 
 #include <utility>
 
-#include "include/number_of_arbitrary_length.h"
+#include "include/al_number.h"
 #include "include/matrix.h"
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix) {

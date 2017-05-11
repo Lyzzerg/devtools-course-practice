@@ -4,7 +4,7 @@
 
 #include <string>
 
-#include "include/number_of_arbitrary_length.h"
+#include "include/al_number.h"
 
 TEST(Baranov_Evgeny_ALNumberTest, can_create_num) {
     // Arrange
