@@ -1,7 +1,7 @@
 // Copyright 2017 Baranov Evgeny
 
 #include "include/matrix.h"
-#include "include/number_of_arbitrary_length.h"
+#include "include/al_number.h"
 
 ALMatrix::ALMatrix() : matrix_(nullptr), rows_(0), columns_(0) {
 }
