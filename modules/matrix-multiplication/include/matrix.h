@@ -31,7 +31,7 @@ class ALMatrix {
 
  private:
     ALNumber ** matrix_;
-    unsigned int rows;
+    unsigned int rows_;
     unsigned int columns_;
 };
 #endif  // MODULES_MATRIX_MULTIPLICATION_INCLUDE_MATRIX_H_
