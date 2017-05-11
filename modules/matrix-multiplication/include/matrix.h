@@ -3,7 +3,7 @@
 #ifndef MODULES_MATRIX_MULTIPLICATION_INCLUDE_MATRIX_H_
 #define MODULES_MATRIX_MULTIPLICATION_INCLUDE_MATRIX_H_
 
-#include "include/number_of_arbitrary_length.h"
+#include "include/al_number.h"
 
 class ALMatrix {
  public:
