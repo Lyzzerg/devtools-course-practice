@@ -26,10 +26,8 @@ ALMatrix::~ALMatrix() {
 }
 
 ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
-    if (rows_ != _matrix.rows_ || columns_ != _matrix.columns_) {
-        DeleteMatix();
-        CreateMatrix(_matrix.rows_, _matrix.columns_);
-    }
+    DeleteMatix();
+    CreateMatrix(_matrix.rows_, _matrix.columns_);
     CopyMatrix(_matrix);
     return *this;
 }
