@@ -67,7 +67,7 @@ ALNumber ALNumber::Compos(const ALNumber& _firstnum,
         j = _firstnum.size_ >= _secondnum.size_ ?
             _secondnum.size_ - 1 : _firstnum.size_ - 1;
     }
-    return compos_res = multiplication;
+    return compos_res;
 }
 
 ALNumber::ALNumber() : number_representation_("0"), size_(1) {}
