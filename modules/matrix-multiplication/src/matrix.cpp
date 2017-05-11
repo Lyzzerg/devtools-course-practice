@@ -6,17 +6,15 @@
 ALMatrix::ALMatrix() : matrix_(nullptr), rows_(0), columns_(0) {
 }
 
-ALMatrix::ALMatrix(unsigned int _size) : rows_(_size), columns_(_size) {
+ALMatrix::ALMatrix(unsigned int _size) {
     CreateMatrix(_size, _size);
 }
 
-ALMatrix::ALMatrix(unsigned int _rows, unsigned int _columns):
-    rows_(_rows), columns_(_columns) {
+ALMatrix::ALMatrix(unsigned int _rows, unsigned int _columns) {
     CreateMatrix(_rows, _columns);
 }
 
-ALMatrix::ALMatrix(const ALMatrix& _matrix):
-    rows_(_matrix.rows_), columns_(_matrix.columns_) {
+ALMatrix::ALMatrix(const ALMatrix& _matrix) {
     CreateMatrix(_matrix.rows_, _matrix.columns_);
     CopyMatrix(_matrix);
 }
@@ -28,8 +26,6 @@ ALMatrix::~ALMatrix() {
 
 ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
     DeleteMatix();
-    rows_ = _matrix.rows_;
-    columns_ = _matrix.columns_;
     CreateMatrix(_matrix.rows_, _matrix.columns_);
     CopyMatrix(_matrix);
     return *this;
@@ -83,6 +79,8 @@ ALNumber* ALMatrix::operator[](unsigned int _row) const {
 }
 
 void ALMatrix::CreateMatrix(int _rows, int _columns) {
+    rows_ = _rows;
+    columns_ = _columns;
     if (rows_ != 0 && columns_ != 0) {
         matrix_ = new ALNumber*[rows_];
         for (unsigned int i = 0; i < rows_; ++i) {
@@ -101,6 +99,8 @@ void ALMatrix::DeleteMatix() {
         }
         delete[] matrix_;
     }
+    rows_ = 0;
+    columns_ = 0;
 }
 
 void ALMatrix::CopyMatrix(const ALMatrix& _matrix) {
