@@ -15,7 +15,8 @@ ALMatrix::ALMatrix(unsigned int _rows, unsigned int _columns):
     CreateMatrix(_rows, _columns);
 }
 
-ALMatrix::ALMatrix(const ALMatrix& _matrix) {
+ALMatrix::ALMatrix(const ALMatrix& _matrix):
+    rows_(_matrix.rows_), columns_(_matrix.columns_) {
     CreateMatrix(_matrix.rows_, _matrix.columns_);
     CopyMatrix(_matrix);
 }
@@ -27,6 +28,8 @@ ALMatrix::~ALMatrix() {
 
 ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
     DeleteMatix();
+    rows_ = _matrix.rows_;
+    columns_ = _matrix.columns_;
     CreateMatrix(_matrix.rows_, _matrix.columns_);
     CopyMatrix(_matrix);
     return *this;
