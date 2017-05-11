@@ -37,7 +37,7 @@ ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
         for (unsigned int i = 0; i < rows_; ++i) {
             for (unsigned int j = 0; j < columns_; ++j) {
                 sum_res.matrix_[i][j] =
-                    sum_res.matrix_[i][j] + _matrix.matrix_[i][j];
+                    this->matrix_[i][j] + _matrix.matrix_[i][j];
             }
         }
     } else {
