@@ -89,8 +89,6 @@ ALNumber::ALNumber(const std::string& _str)
     }
 }
 
-ALNumber::~ALNumber() {}
-
 bool ALNumber::operator==(const ALNumber& _number) const {
     return size_ == _number.size_ &&
         number_representation_ == _number.number_representation_;
