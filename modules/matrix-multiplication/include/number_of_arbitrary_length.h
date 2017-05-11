@@ -12,8 +12,6 @@ class ALNumber {
 
     explicit ALNumber(const std::string& _str);
 
-    ALNumber(const ALNumber& _number);
-
     ~ALNumber();
 
     bool operator == (const ALNumber& _number) const;
@@ -23,8 +21,6 @@ class ALNumber {
     bool operator != (const ALNumber& _number) const;
 
     bool operator != (const std::string& _str) const;
-
-    ALNumber& operator = (const ALNumber& _number);
 
     ALNumber& operator = (const std::string& _str);
 
