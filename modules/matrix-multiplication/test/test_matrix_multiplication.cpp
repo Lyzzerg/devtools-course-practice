@@ -212,6 +212,15 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_sum_wrong_matrixes) {
     ASSERT_ANY_THROW(matrix1+matrix2);
 }
 
+TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_compos_wrong_matrixes) {
+    // Arrange
+    ALMatrix matrix1(3, 4);
+    ALMatrix matrix2(2, 3);
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(matrix1 * matrix2);
+}
+
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_use_wrong_indexation) {
     // Arrange
     ALMatrix matrix1(3);
