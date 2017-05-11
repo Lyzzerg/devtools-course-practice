@@ -39,8 +39,7 @@ class ALMatrix {
             for (unsigned int i = 0; i < rows_; ++i) {
                 matrix_[i] = new ALNumber[columns_];
             }
-        }
-        else {
+        } else {
             rows_ = columns_ = 0;
             matrix_ = nullptr;
         }
