@@ -107,10 +107,8 @@ bool ALNumber::operator!=(const std::string& _str) const {
 }
 
 ALNumber& ALNumber::operator=(const std::string& _str) {
-    if ((this->number_representation_ != _str) && (_str.length() != 0)) {
-        ALNumber number(_str);
-        *this = number;
-    }
+    ALNumber number(_str);
+    *this = number;
     return *this;
 }
 
