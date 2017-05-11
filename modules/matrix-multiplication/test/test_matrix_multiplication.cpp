@@ -136,10 +136,10 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum_matrixes) {
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_matrixes) {
     // Arrange
-    ALMatrix matrix1(3, 4);
-    ALMatrix matrix2(4, 3);
+    ALMatrix matrix1(2, 3);
+    ALMatrix matrix2(3, 5);
     ALMatrix compos_matrixes;
-    ALMatrix result(3, 3);
+    ALMatrix result(2, 5);
     bool flag(true);
     // Act
     for (unsigned int i = 0; i < matrix1.GetRows(); ++i) {
@@ -154,7 +154,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_matrixes) {
     }
     for (unsigned int i = 0; i < result.GetRows(); ++i) {
         for (unsigned int j = 0; j < result.GetColumns(); ++j) {
-            result[i][j] = "2116";
+            result[i][j] = "1587";
         }
     }
     compos_matrixes = matrix1 * matrix2;

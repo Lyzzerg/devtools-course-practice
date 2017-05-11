@@ -32,7 +32,7 @@ ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
 }
 
 ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
-    ALMatrix sum_res(*this);
+    ALMatrix sum_res(rows_, columns_);
     if (this->rows_ == _matrix.rows_ && this->columns_ == _matrix.columns_) {
         for (unsigned int i = 0; i < rows_; ++i) {
             for (unsigned int j = 0; j < columns_; ++j) {
@@ -47,8 +47,8 @@ ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
 }
 
 ALMatrix ALMatrix::operator*(const ALMatrix& _matrix) const {
-    ALMatrix composition(rows_, rows_);
-    if (this->rows_ == _matrix.columns_ && this->columns_ == _matrix.rows_) {
+    ALMatrix composition(rows_, _matrix.columns_);
+    if (this->rows_ == _matrix.columns_) {
         for (unsigned int i = 0; i < composition.rows_; ++i) {
             for (unsigned int j = 0; j < composition.columns_; ++j) {
                 for (unsigned int k = 0; k < this->columns_; ++k) {
