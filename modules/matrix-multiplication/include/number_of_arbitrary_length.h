@@ -7,17 +7,6 @@
 #include <iostream>
 
 class ALNumber {
- private:
-    std::string number_representation;
-
-    unsigned int size;
-
-    ALNumber sum(const ALNumber& _firstnum,
-        const ALNumber& _secondnum) const;
-
-    ALNumber compos(const ALNumber& _firstnum,
-        const ALNumber& _secondnum) const;
-
  public:
     ALNumber();
 
@@ -47,6 +36,13 @@ class ALNumber {
 
     ALNumber operator * (const std::string& _number) const;
 
-    std::string getValue() const;
+    std::string GetValue() const;
+ private:
+    std::string number_representation_;
+    unsigned int size_;
+    ALNumber Sum(const ALNumber& _firstnum,
+        const ALNumber& _secondnum) const;
+    ALNumber Compos(const ALNumber& _firstnum,
+        const ALNumber& _secondnum) const;
 };
 #endif  // MODULES_MATRIX_MULTIPLICATION_INCLUDE_NUMBER_OF_ARBITRARY_LENGTH_H_

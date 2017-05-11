@@ -28,7 +28,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_value) {
     ALNumber number1("12");
     std::string num;
     // Act
-    num = number1.getValue();
+    num = number1.GetValue();
     // Assert
     EXPECT_EQ("12", num);
 }
@@ -39,7 +39,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, corr_create_num_as_str) {
     // Act
     ALNumber number(str);
     // Assert
-    EXPECT_EQ("123", number.getValue());
+    EXPECT_EQ("123", number.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, corr_create_big_num_as_str) {
@@ -48,7 +48,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, corr_create_big_num_as_str) {
     // Act
     ALNumber number(str);
     // Assert
-    EXPECT_EQ("1234567891011121314151617181920212223242526", number.getValue());
+    EXPECT_EQ("1234567891011121314151617181920212223242526", number.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_create_trash_num) {
@@ -73,7 +73,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, copy_eq_source_num) {
     // Act
     ALNumber number2(number1);
     // Assert
-    EXPECT_EQ("11124654846321654612", number2.getValue());
+    EXPECT_EQ("11124654846321654612", number2.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, correct_num_comparison1) {
@@ -187,7 +187,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_num) {
     // Act
     number1 = number2;
     // Assert
-    EXPECT_EQ("1", number1.getValue());
+    EXPECT_EQ("1", number1.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_assign_equal_nums) {
@@ -197,7 +197,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_assign_equal_nums) {
     // Act
     number1 = number2;
     // Assert
-    EXPECT_EQ("123", number1.getValue());
+    EXPECT_EQ("123", number1.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_str) {
@@ -206,7 +206,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_str) {
     // Act
     number1 = "465456456545645";
     // Assert
-    EXPECT_EQ("465456456545645", number1.getValue());
+    EXPECT_EQ("465456456545645", number1.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_equal_str) {
@@ -215,7 +215,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_assign_equal_str) {
     // Act
     number1 = "465456456545645";
     // Assert
-    EXPECT_EQ("465456456545645", number1.getValue());
+    EXPECT_EQ("465456456545645", number1.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_assign_corrupted_str) {
@@ -234,7 +234,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_sum) {
     // Act
     number3 = number1 + number2;
     // Assert
-    EXPECT_EQ("2", number3.getValue());
+    EXPECT_EQ("2", number3.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_nums) {
@@ -245,7 +245,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_nums) {
     // Act
     number3 = number1 * number2;
     // Assert
-    EXPECT_EQ("396", number3.getValue());
+    EXPECT_EQ("396", number3.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_str) {
@@ -255,7 +255,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_str) {
     // Act
     number3 = number1 * "33";
     // Assert
-    EXPECT_EQ("396", number3.getValue());
+    EXPECT_EQ("396", number3.GetValue());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix) {
@@ -306,7 +306,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_row) {
     ALMatrix matrix(3, 4);
     // Act
     // Assert
-    EXPECT_EQ(3, matrix.get_rows());
+    EXPECT_EQ(3, matrix.GetRows());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_columns) {
@@ -314,7 +314,7 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_get_columns) {
     ALMatrix matrix(3, 4);
     // Act
     // Assert
-    EXPECT_EQ(4, matrix.get_columns());
+    EXPECT_EQ(4, matrix.GetColumns());
 }
 
 TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
@@ -323,9 +323,9 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_matrix_correct) {
     std::pair<int, int> rows_columns;
     std::pair<int, int> result;
     // Act
-    rows_columns.first = matrix.get_rows();
+    rows_columns.first = matrix.GetRows();
     result.first = 3;
-    rows_columns.second = matrix.get_columns();
+    rows_columns.second = matrix.GetColumns();
     result.second = 4;
     // Assert
     EXPECT_EQ(result, rows_columns);
@@ -410,24 +410,24 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_correct_compos_matrixes) {
     ALMatrix result(3, 3);
     bool flag(true);
     // Act
-    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix1.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.GetColumns(); ++j) {
             matrix1[i][j] = "23";
         }
     }
-    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix2.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.GetColumns(); ++j) {
             matrix2[i][j] = "23";
         }
     }
-    for (unsigned int i = 0; i < result.get_rows(); ++i) {
-        for (unsigned int j = 0; j < result.get_columns(); ++j) {
+    for (unsigned int i = 0; i < result.GetRows(); ++i) {
+        for (unsigned int j = 0; j < result.GetColumns(); ++j) {
             result[i][j] = "2116";
         }
     }
     compos_matrixes = matrix1 * matrix2;
-    for (unsigned int i = 0; i < compos_matrixes.get_rows(); ++i) {
-        for (unsigned int j = 0; j < compos_matrixes.get_columns(); ++j) {
+    for (unsigned int i = 0; i < compos_matrixes.GetRows(); ++i) {
+        for (unsigned int j = 0; j < compos_matrixes.GetColumns(); ++j) {
             if (compos_matrixes[i][j] != result[i][j]) {
                 flag = false;
                 break;
@@ -443,14 +443,14 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, can_create_copy_matrix) {
     ALMatrix matrix1(3, 4);
     bool flag(true);
     // Act
-    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix1.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.GetColumns(); ++j) {
             matrix1[i][j] = "23";
         }
     }
     ALMatrix matrix2(matrix1);
-    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix2.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.GetColumns(); ++j) {
             if (matrix2[i][j] != matrix1[i][j]) {
                 flag = false;
                 break;
@@ -466,13 +466,13 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_compos_wrong_matrixes) {
     ALMatrix matrix1(3, 4);
     ALMatrix matrix2(3, 3);
     // Act
-    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix1.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.GetColumns(); ++j) {
             matrix1[i][j] = "23";
         }
     }
-    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix2.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.GetColumns(); ++j) {
             matrix2[i][j] = "23";
         }
     }
@@ -485,13 +485,13 @@ TEST(Baranov_Evgeny_MatrixMultiplicationTest, cant_sum_wrong_matrixes) {
     ALMatrix matrix1(3, 4);
     ALMatrix matrix2(3, 3);
     // Act
-    for (unsigned int i = 0; i < matrix1.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix1.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix1.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix1.GetColumns(); ++j) {
             matrix1[i][j] = "23";
         }
     }
-    for (unsigned int i = 0; i < matrix2.get_rows(); ++i) {
-        for (unsigned int j = 0; j < matrix2.get_columns(); ++j) {
+    for (unsigned int i = 0; i < matrix2.GetRows(); ++i) {
+        for (unsigned int j = 0; j < matrix2.GetColumns(); ++j) {
             matrix2[i][j] = "23";
         }
     }

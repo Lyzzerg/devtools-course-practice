@@ -6,11 +6,6 @@
 #include "include/number_of_arbitrary_length.h"
 
 class ALMatrix {
- private:
-    ALNumber ** matrix;
-    unsigned int rows;
-    unsigned int columns;
-
  public:
      ALMatrix();
 
@@ -28,10 +23,14 @@ class ALMatrix {
 
      ALMatrix operator * (const ALMatrix& _matrix) const;
 
-     unsigned int get_rows() const;
+     unsigned int GetRows() const;
 
-     unsigned int get_columns() const;
+     unsigned int GetColumns() const;
 
      ALNumber* operator[] (unsigned int _row) const;
+ private:
+    ALNumber ** matrix_;
+    unsigned int rows;
+    unsigned int columns_;
 };
 #endif  // MODULES_MATRIX_MULTIPLICATION_INCLUDE_MATRIX_H_

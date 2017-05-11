@@ -3,45 +3,45 @@
 #include "include/matrix.h"
 #include "include/number_of_arbitrary_length.h"
 
-ALMatrix::ALMatrix() : matrix(nullptr), rows(0), columns(0) {
+ALMatrix::ALMatrix() : matrix_(nullptr), rows_(0), columns_(0) {
 }
 
-ALMatrix::ALMatrix(unsigned int _size) : rows(_size), columns(_size) {
-    if (rows != 0 && columns != 0) {
-        matrix = new ALNumber*[rows];
-        for (unsigned int i = 0; i < rows; ++i) {
-            matrix[i] = new ALNumber[columns];
+ALMatrix::ALMatrix(unsigned int _size) : rows_(_size), columns_(_size) {
+    if (rows_ != 0 && columns_ != 0) {
+        matrix_ = new ALNumber*[rows_];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            matrix_[i] = new ALNumber[columns_];
         }
     } else {
-        rows = columns = 0;
-        matrix = nullptr;
+        rows_ = columns_ = 0;
+        matrix_ = nullptr;
     }
 }
 
 ALMatrix::ALMatrix(unsigned int _rows, unsigned int _columns):
-    rows(_rows), columns(_columns) {
-    if (rows != 0 && columns != 0) {
-        matrix = new ALNumber*[rows];
-        for (unsigned int i = 0; i < rows; ++i) {
-            matrix[i] = new ALNumber[columns];
+    rows_(_rows), columns_(_columns) {
+    if (rows_ != 0 && columns_ != 0) {
+        matrix_ = new ALNumber*[rows_];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            matrix_[i] = new ALNumber[columns_];
         }
     } else {
-        rows = columns = 0;
-        matrix = nullptr;
+        rows_ = columns_ = 0;
+        matrix_ = nullptr;
     }
 }
 
 ALMatrix::ALMatrix(const ALMatrix & _matrix) {
-    if (_matrix.columns != 0 && _matrix.rows != 0) {
-        this->columns = _matrix.columns;
-        this->rows = _matrix.rows;
-        this->matrix = new ALNumber*[rows];
-        for (unsigned int i = 0; i < rows; ++i) {
-            this->matrix[i] = new ALNumber[columns];
+    if (_matrix.columns_ != 0 && _matrix.rows_ != 0) {
+        this->columns_ = _matrix.columns_;
+        this->rows_ = _matrix.rows_;
+        this->matrix_ = new ALNumber*[rows_];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            this->matrix_[i] = new ALNumber[columns_];
         }
-        for (unsigned int i = 0; i < rows; ++i) {
-            for (unsigned int j = 0; j < columns; ++j) {
-                this->matrix[i][j] = _matrix.matrix[i][j];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            for (unsigned int j = 0; j < columns_; ++j) {
+                this->matrix_[i][j] = _matrix.matrix_[i][j];
             }
         }
     } else {
@@ -50,32 +50,32 @@ ALMatrix::ALMatrix(const ALMatrix & _matrix) {
 }
 
 ALMatrix::~ALMatrix() {
-    for (unsigned int i = 0; i < rows; ++i) {
-        delete[] matrix[i];
+    for (unsigned int i = 0; i < rows_; ++i) {
+        delete[] matrix_[i];
     }
-    delete[] matrix;
-    matrix = nullptr;
+    delete[] matrix_;
+    matrix_ = nullptr;
 }
 
 ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
-    if (_matrix.columns != 0 && _matrix.rows != 0) {
-        if (columns != 0 && rows != 0) {
-            for (unsigned int i = 0; i < rows; ++i) {
-                delete[] matrix[i];
+    if (_matrix.columns_ != 0 && _matrix.rows_ != 0) {
+        if (columns_ != 0 && rows_ != 0) {
+            for (unsigned int i = 0; i < rows_; ++i) {
+                delete[] matrix_[i];
             }
-            delete[] matrix;
+            delete[] matrix_;
         }
 
-        this->rows = _matrix.rows;
-        this->columns = _matrix.columns;
-        this->matrix = new ALNumber*[rows];
-        for (unsigned int i = 0; i < rows; ++i) {
-            this->matrix[i] = new ALNumber[columns];
+        this->rows_ = _matrix.rows_;
+        this->columns_ = _matrix.columns_;
+        this->matrix_ = new ALNumber*[rows_];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            this->matrix_[i] = new ALNumber[columns_];
         }
 
-        for (unsigned int i = 0; i < rows; ++i) {
-            for (unsigned int j = 0; j < columns; ++j) {
-                this->matrix[i][j] = _matrix.matrix[i][j];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            for (unsigned int j = 0; j < columns_; ++j) {
+                this->matrix_[i][j] = _matrix.matrix_[i][j];
             }
         }
     } else {
@@ -86,12 +86,12 @@ ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
 
 ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
     ALMatrix sum_res;
-    if (this->rows == _matrix.rows && this->columns == _matrix.columns) {
+    if (this->rows_ == _matrix.rows_ && this->columns_ == _matrix.columns_) {
         sum_res = *this;
-        for (unsigned int i = 0; i < rows; ++i) {
-            for (unsigned int j = 0; j < columns; ++j) {
-                sum_res.matrix[i][j] =
-                    sum_res.matrix[i][j] + _matrix.matrix[i][j];
+        for (unsigned int i = 0; i < rows_; ++i) {
+            for (unsigned int j = 0; j < columns_; ++j) {
+                sum_res.matrix_[i][j] =
+                    sum_res.matrix_[i][j] + _matrix.matrix_[i][j];
             }
         }
     } else {
@@ -102,13 +102,13 @@ ALMatrix ALMatrix::operator+(const ALMatrix& _matrix) const {
 
 ALMatrix ALMatrix::operator*(const ALMatrix& _matrix) const {
     ALMatrix compos_res;
-    if (this->rows == _matrix.columns && this->columns == _matrix.rows) {
-        ALMatrix composition(rows, rows);
-        for (unsigned int i = 0; i < composition.rows; ++i) {
-            for (unsigned int j = 0; j < composition.columns; ++j) {
-                for (unsigned int k = 0; k < this->columns; ++k) {
-                    composition.matrix[i][j] = composition[i][j] +
-                        this->matrix[i][k] *_matrix.matrix[k][j];
+    if (this->rows_ == _matrix.columns_ && this->columns_ == _matrix.rows_) {
+        ALMatrix composition(rows_, rows_);
+        for (unsigned int i = 0; i < composition.rows_; ++i) {
+            for (unsigned int j = 0; j < composition.columns_; ++j) {
+                for (unsigned int k = 0; k < this->columns_; ++k) {
+                    composition.matrix_[i][j] = composition[i][j] +
+                        this->matrix_[i][k] *_matrix.matrix_[k][j];
                 }
             }
         }
@@ -119,17 +119,17 @@ ALMatrix ALMatrix::operator*(const ALMatrix& _matrix) const {
     return compos_res;
 }
 
-unsigned int ALMatrix::get_rows() const {
-    return rows;
+unsigned int ALMatrix::GetRows() const {
+    return rows_;
 }
 
-unsigned int ALMatrix::get_columns() const {
-    return columns;
+unsigned int ALMatrix::GetColumns() const {
+    return columns_;
 }
 
 ALNumber* ALMatrix::operator[](unsigned int _row) const {
-    if (_row >= rows) {
+    if (_row >= rows_) {
         throw "wrong row";
     }
-    return matrix[_row];
+    return matrix_[_row];
 }
