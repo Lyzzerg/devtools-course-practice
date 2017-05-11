@@ -30,7 +30,7 @@ ALMatrix ALMatrix::operator=(const ALMatrix& _matrix) {
         DeleteMatix();
         CreateMatrix(_matrix.rows_, _matrix.columns_);
     }
-        CopyMatrix(_matrix);
+    CopyMatrix(_matrix);
     return *this;
 }
 
