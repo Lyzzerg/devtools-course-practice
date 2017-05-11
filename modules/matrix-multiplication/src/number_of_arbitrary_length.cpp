@@ -89,11 +89,6 @@ ALNumber::ALNumber(const std::string& _str)
     }
 }
 
-ALNumber::ALNumber(const ALNumber& _number) {
-    this->size_ = _number.size_;
-    this->number_representation_ = _number.number_representation_;
-}
-
 ALNumber::~ALNumber() {}
 
 bool ALNumber::operator==(const ALNumber& _number) const {
@@ -113,16 +108,7 @@ bool ALNumber::operator!=(const std::string& _str) const {
     return !(*this == _str);
 }
 
-ALNumber & ALNumber::operator=(const ALNumber& _number) {
-    if ((this->size_ != _number.size_) ||
-        (this->number_representation_ != _number.number_representation_)) {
-        this->size_ = _number.size_;
-        this->number_representation_ = _number.number_representation_;
-    }
-    return *this;
-}
-
-ALNumber & ALNumber::operator=(const std::string& _str) {
+ALNumber& ALNumber::operator=(const std::string& _str) {
     if ((this->number_representation_ != _str) && (_str.length() != 0)) {
         ALNumber number(_str);
         *this = number;
