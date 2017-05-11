@@ -33,8 +33,8 @@ class ALMatrix {
     ALNumber ** matrix_;
     unsigned int rows_;
     unsigned int columns_;
-	void CreateMatrix(int _rows, int _columns);
-	void DeleteMatix();
-	void CopyMatrix(const ALMatrix& _matrix);
+    void CreateMatrix(int _rows, int _columns);
+    void DeleteMatix();
+    void CopyMatrix(const ALMatrix& _matrix);
 };
 #endif  // MODULES_MATRIX_MULTIPLICATION_INCLUDE_MATRIX_H_
